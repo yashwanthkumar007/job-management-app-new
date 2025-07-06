@@ -50,7 +50,7 @@ const CreateJobModal = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/jobs/create", data, {
+      await axios.post("REACT_APP_API_BASE_URL", data, {
         headers: { Authorization: `Bearer ${token}` },
       });
       onClose();
