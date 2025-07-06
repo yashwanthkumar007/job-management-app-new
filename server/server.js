@@ -3,39 +3,15 @@ dotenv.config(); // ✅ MUST be first
 
 const express = require("express");
 const cors = require("cors");
-const passport = require("passport");
 const session = require("express-session");
 const connectDB = require("./config/db");
 
-
-
+// Connect to MongoDB
 connectDB();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-app.use(express.json());
-app.use(
-  session({
-    secret: process.env.JWT_SECRET,
-    resave: false,
-    saveUninitialized: false
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
-
-//const jobRoutes = require("./routes/jobs");
-const jobRoutes = require("./routes/jobs");
-app.use("/api/jobs", jobRoutes);
-app.use("/api/jobs", require("./routes/jobs"));
-
-const jobsRouter = require("./routes/jobs");
-app.use("/api/jobs", jobsRouter);
+// ✅ CORS for your deployed client
 app.use(
   cors({
     origin: "https://job-management-app-new-client.onrender.com",
@@ -43,7 +19,27 @@ app.use(
   })
 );
 
+app.use(express.json());
 
+// ✅ If you are not using passport, remove these lines
+// const passport = require("passport");
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+app.use(
+  session({
+    secret: process.env.JWT_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+// ✅ Only mount routes **once**
+app.use("/api/jobs", require("./routes/jobs"));
 app.use("/api/auth", require("./routes/authRoutes"));
 
 const PORT = process.env.PORT || 5000;
