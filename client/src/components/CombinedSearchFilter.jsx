@@ -183,4 +183,5 @@ const CombinedSearchFilter = ({
   );
 };
 
+
 export default CombinedSearchFilter;
