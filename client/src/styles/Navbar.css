@@ -1,0 +1,61 @@
+.navbar {
+  width: 70%;               /* Reduced width */
+  max-width: 660px;        /* Optional max width */
+  margin: 20px auto;        /* Center horizontally and add top margin */
+  height: 70px;             /* Slightly smaller height */
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-radius: 100px;      /* Rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links li {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar__links li:hover {
+  color: #7e22ce;
+}
+
+.navbar__right .create-btn {
+  background: linear-gradient(90deg, #7e22ce, #9333ea);
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navbar__right .create-btn:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,125 @@
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+/* Semi-transparent background */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+/* Modal content box */
+.modal-content {
+  position: relative;
+  z-index: 1000;
+  max-width: 700px;
+  margin: 80px auto;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Grid layout for fields */
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Input groups */
+.modal-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.modal-group input,
+.modal-group select,
+.modal-group textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Make Job Description full width */
+.modal-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Salary inputs side by side */
+.salary-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.salary-inputs input {
+  flex: 1;
+}
+
+/* Deadline input with icon */
+.deadline-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-icon {
+  color: #333;
+  font-size: 18px;
+}
+
+/* Actions */
+.modal-actions {
+  display: flex;
+  justify-content:space-between;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.btn-draft {
+  background: white;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-publish {
+  background: #008CFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Improve select height consistency */
+
