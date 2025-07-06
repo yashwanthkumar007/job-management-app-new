@@ -13,6 +13,9 @@ const CreateJobModal = ({ onClose }) => {
   const [deadline, setDeadline] = useState("");
   const dateInputRef = useRef(null);
 
+  // ✅ Load API base URL from .env
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleSubmit = async () => {
     // Basic validation
     if (
@@ -50,7 +53,8 @@ const CreateJobModal = ({ onClose }) => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("REACT_APP_API_BASE_URL", data, {
+      console.log("Posting to:", `${BASE_URL}/api/jobs/create`);
+      await axios.post(`${BASE_URL}/api/jobs/create`, data, {
         headers: { Authorization: `Bearer ${token}` },
       });
       onClose();
@@ -103,7 +107,7 @@ const CreateJobModal = ({ onClose }) => {
               <option>Chennai</option>
               <option>Pune</option>
               <option>Kolkata</option>
-              {/* (More options as needed) */}
+              {/* Add more locations as needed */}
             </select>
           </div>
 
