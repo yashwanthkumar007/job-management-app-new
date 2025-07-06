@@ -25,6 +25,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 //const jobRoutes = require("./routes/jobs");
 const jobRoutes = require("./routes/jobs");
 app.use("/api/jobs", jobRoutes);
