@@ -14,7 +14,11 @@ const app = express();
 // ✅ CORS for your deployed client
 app.use(
   cors({
-    origin: "https://job-management-app-new-client.onrender.com",
+    origin: [
+      "https://job-management-app-new-2.onrender.com",
+      "https://job-management-app-new-client.onrender.com",
+      "http://localhost:3000"
+    ],
     credentials: true,
   })
 );
