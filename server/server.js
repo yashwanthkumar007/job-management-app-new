@@ -36,8 +36,6 @@ app.use("/api/jobs", require("./routes/jobs"));
 
 const jobsRouter = require("./routes/jobs");
 app.use("/api/jobs", jobsRouter);
-
-const cors = require("cors");
 app.use(
   cors({
     origin: "https://job-management-app-new-client.onrender.com",
